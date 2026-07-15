@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>次の休み、どこ行く？｜旅行先診断</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="top-nav" aria-label="サイト情報">
+      <span class="logo">Holiday Compass</span>
+      <a href="#favorites">お気に入り</a>
+    </nav>
+    <div class="hero__content">
+      <p class="eyebrow">国内も海外も、気分で選ぶ旅特集</p>
+      <h1>次の休み、<br />どこ行く？</h1>
+      <p class="lead">日数・予算・旅の目的から、あなたに相性ぴったりの旅行先を3件おすすめします。</p>
+      <a class="hero__button" href="#diagnosis">診断をはじめる</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="diagnosis" class="panel quiz-panel" aria-labelledby="quiz-title">
+      <div class="section-heading">
+        <p class="eyebrow">Travel Finder</p>
+        <h2 id="quiz-title">旅の条件を選んでください</h2>
+      </div>
+      <form id="travel-form" class="quiz-grid">
+        <label>日数
+          <select name="days" required>
+            <option value="1-2">1〜2日</option>
+            <option value="3-4">3〜4日</option>
+            <option value="5-7">5〜7日</option>
+            <option value="8+">8日以上</option>
+          </select>
+        </label>
+        <label>予算
+          <select name="budget" required>
+            <option value="low">〜5万円</option>
+            <option value="mid">5〜15万円</option>
+            <option value="high">15〜30万円</option>
+            <option value="luxury">30万円〜</option>
+          </select>
+        </label>
+        <label>旅行の目的
+          <select name="purpose" required>
+            <option value="relax">癒やし・リゾート</option>
+            <option value="food">グルメ</option>
+            <option value="culture">文化・街歩き</option>
+            <option value="nature">自然・絶景</option>
+            <option value="activity">アクティビティ</option>
+          </select>
+        </label>
+        <label>気候
+          <select name="climate" required>
+            <option value="warm">暖かい</option>
+            <option value="cool">涼しい</option>
+            <option value="mild">過ごしやすい</option>
+            <option value="snow">雪・冬景色</option>
+          </select>
+        </label>
+        <label>旅行ペース
+          <select name="pace" required>
+            <option value="slow">のんびり</option>
+            <option value="balanced">ほどよく充実</option>
+            <option value="active">アクティブ</option>
+          </select>
+        </label>
+        <button type="submit">おすすめを見る</button>
+      </form>
+    </section>
+
+    <section id="loading" class="loading" aria-live="polite" hidden>
+      <div class="route-line">
+        <span class="vehicle">✈️</span>
+        <span class="train">🚆</span>
+      </div>
+      <p>あなたにぴったりの旅先を探索中...</p>
+    </section>
+
+    <section id="results" class="results" aria-labelledby="results-title" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">Best 3 Destinations</p>
+        <h2 id="results-title">おすすめの旅先</h2>
+      </div>
+      <div id="result-list" class="card-grid"></div>
+      <button id="retry" class="secondary-button">もう一度診断</button>
+    </section>
+
+    <section id="favorites" class="panel favorites-panel" aria-labelledby="favorites-title">
+      <div class="section-heading">
+        <p class="eyebrow">My Travel Clippings</p>
+        <h2 id="favorites-title">お気に入り</h2>
+      </div>
+      <div id="favorite-list" class="favorite-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>外部APIを使わず、ローカルデータから診断しています。</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
